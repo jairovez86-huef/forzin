@@ -1,16 +1,956 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <!-- Redirección mediante HTML Meta (inmediata) -->
-  <meta http-equiv="refresh" content="0; url=https://web-production-1d56e.up.railway.app/">
-  <!-- Redirección con JavaScript de respaldo -->
-  <script type="text/javascript">
-    window.location.href = "https://web-production-1d56e.up.railway.app/";
-  </script>
-  <title>Redirigiendo...</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Medir con una regla que cambia · cuadernillo sobre el costo de reposición | sixtime.online</title>
+<meta name="description" content="Cuadernillo informativo sobre cómo medir el resultado de un comercio pequeño cuando los precios cambian: costo de reposición, unidad de cuenta estable, margen en unidades de producto y registro para reconstruir el pasado.">
+<link rel="canonical" href="https://sixtime.online/">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="sixtime.online">
+<meta property="og:locale" content="es_GT">
+<meta property="og:url" content="https://sixtime.online/">
+<meta property="og:title" content="Medir con una regla que cambia: cuadernillo sobre el costo de reposición en un comercio pequeño">
+<meta property="og:description" content="Cinco capítulos que tratan la medición contable con precios cambiantes como un problema técnico: reposición, unidad de cuenta, margen físico y registro.">
+<meta property="article:published_time" content="2026-09-27">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&amp;family=IBM+Plex+Sans:wght@400;500&amp;display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://sixtime.online/#website",
+      "url": "https://sixtime.online/",
+      "name": "sixtime.online",
+      "inLanguage": "es",
+      "publisher": { "@id": "https://sixtime.online/#organizacion" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://sixtime.online/#titular",
+      "name": "RICARDO DAVID JIMENEZ ARRIETA",
+      "email": "mailto:soporte@sixtime.online",
+      "telephone": "+502 2472 8154",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Anillo Periférico Diag. 12",
+        "addressLocality": "Cdad. de Guatemala",
+        "addressCountry": "GT"
+      }
+    },
+    {
+      "@type": "EducationalOrganization",
+      "@id": "https://sixtime.online/#organizacion",
+      "name": "sixtime.online",
+      "url": "https://sixtime.online/",
+      "email": "soporte@sixtime.online",
+      "telephone": "+502 2472 8154",
+      "founder": { "@id": "https://sixtime.online/#titular" },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Anillo Periférico Diag. 12",
+        "addressLocality": "Cdad. de Guatemala",
+        "addressCountry": "GT"
+      }
+    },
+    {
+      "@type": "Article",
+      "@id": "https://sixtime.online/#dossier",
+      "headline": "Medir con una regla que cambia: cuadernillo sobre el costo de reposición en un comercio pequeño",
+      "description": "Cuadernillo en cinco capítulos sobre la medición del resultado de un comercio pequeño cuando los precios cambian, tratada como problema técnico y no como pronóstico.",
+      "inLanguage": "es",
+      "datePublished": "2026-09-27",
+      "dateModified": "2026-09-27",
+      "author": { "@id": "https://sixtime.online/#titular" },
+      "publisher": { "@id": "https://sixtime.online/#organizacion" },
+      "isPartOf": { "@id": "https://sixtime.online/#website" },
+      "mainEntityOfPage": "https://sixtime.online/",
+      "isAccessibleForFree": true
+    }
+  ]
+}
+</script>
+<style>
+:root {
+  --papel: #FAF9F6;
+  --tinta: #14100C;
+  --tinta-media: #57514A;
+  --regla: #E0DAD0;
+  --carmin: #8A2B2E;
+  --texto: "Crimson Pro", serif;
+  --interfaz: "IBM Plex Sans", sans-serif;
+  --margen: 180px;
+  --calle: 36px;
+  --folio: 36px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: calc(var(--folio) + 20px); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--texto);
+  font-size: 1.25rem;
+  line-height: 1.55;
+  font-kerning: normal;
+  overflow-wrap: break-word;
+}
+a {
+  color: var(--tinta);
+  text-decoration-line: underline;
+  text-decoration-color: var(--tinta-media);
+  text-decoration-thickness: 1px;
+  text-underline-offset: .18em;
+  transition: color 150ms ease, text-decoration-color 150ms ease;
+}
+a:hover, a:focus-visible, a:active { color: var(--carmin); text-decoration-color: var(--carmin); }
+:focus-visible { outline: 2px solid var(--carmin); outline-offset: 2px; }
+.salto {
+  position: fixed;
+  left: 16px;
+  top: -80px;
+  z-index: 30;
+  padding: 8px 12px;
+  background: var(--papel);
+  border: 1px solid var(--tinta);
+  font-family: var(--interfaz);
+  font-size: .875rem;
+  transition: top 150ms ease;
+}
+.salto:focus { top: 8px; }
+
+.folio {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--folio);
+  z-index: 10;
+  background: var(--papel);
+  border-bottom: 1px solid var(--tinta);
+}
+.pliego {
+  max-width: calc(66ch + 32px);
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+.folio-interior {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  color: var(--tinta-media);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.folio-nombre { overflow: hidden; text-overflow: ellipsis; }
+.folio-nombre, .folio-interior a { font-size: .8125rem; }
+.folio-interior a { color: var(--tinta-media); }
+.cabeza-cap {
+  position: sticky;
+  top: 0;
+  z-index: 11;
+  height: var(--folio);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: var(--interfaz);
+  font-size: .8125rem;
+  line-height: 1;
+  color: var(--tinta-media);
+  pointer-events: none;
+}
+.cabeza-cap span { background: var(--papel); padding-left: .75rem; max-width: 55%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+main { padding-top: calc(var(--folio) + 48px); padding-bottom: 64px; }
+.pliego { position: relative; }
+
+.portada { padding-bottom: 48px; border-bottom: 1px solid var(--regla); }
+.portada-serie, .portada-firma, .portada-aviso, figcaption, .nota, .colofon-datos, .ficha, .indice-sumario, table, .form-contacto, .aviso-interior p, .aviso-botones, .antiphishing, .legal-fecha, .folio-nombre, .folio-interior a {
+  font-family: var(--interfaz);
+}
+.portada-serie { font-size: .8125rem; color: var(--tinta-media); margin: 0 0 1.5rem; }
+h1 {
+  font-size: clamp(2.1rem, 5.2vw, 3.2rem);
+  line-height: 1.08;
+  font-weight: 600;
+  margin: 0 0 1rem;
+  letter-spacing: -.005em;
+}
+.portada-sub { font-size: 1.4rem; font-style: italic; line-height: 1.35; margin: 0 0 1.5rem; }
+.portada-firma { font-size: .875rem; color: var(--tinta-media); margin: 0 0 .5rem; }
+.portada-aviso { font-size: .875rem; color: var(--tinta-media); margin: 0 0 2rem; padding-left: 12px; border-left: 2px solid var(--carmin); }
+
+figure { margin: 2rem 0; }
+figure svg { display: block; width: 100%; height: auto; }
+figcaption { font-size: .8125rem; line-height: 1.5; color: var(--tinta-media); margin-top: .75rem; }
+.motivo-reducido { max-width: 26rem; }
+.svg-tinta { fill: var(--tinta); }
+.svg-papel { fill: var(--papel); stroke: var(--tinta); stroke-width: 1.5; }
+.svg-divisor { stroke: var(--papel); stroke-width: 1.5; fill: none; }
+.svg-corchete { stroke: var(--carmin); stroke-width: 2; fill: none; }
+.svg-carmin { fill: var(--carmin); }
+.svg-rotulo { font-family: var(--interfaz); font-size: 13px; }
+.motivo-principal .svg-rotulo { font-size: 16px; }
+
+h2 {
+  position: relative;
+  font-size: clamp(1.7rem, 3.6vw, 2.15rem);
+  line-height: 1.15;
+  font-weight: 600;
+  margin: 0 0 1.5rem;
+  padding-top: 1.25rem;
+}
+h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3rem;
+  height: 2px;
+  background: var(--carmin);
+}
+.cap-num {
+  display: block;
+  font-size: 2.6rem;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--carmin);
+  margin-bottom: .35rem;
+  font-variant-numeric: oldstyle-nums;
+}
+h3 { font-size: 1.3rem; line-height: 1.3; font-weight: 600; margin: 2.25rem 0 .75rem; }
+h4 { font-family: var(--interfaz); font-size: .9375rem; font-weight: 500; margin: 1.5rem 0 .5rem; }
+p { margin: 0 0 1em; hyphens: auto; }
+.bloque { padding-top: 56px; margin-top: 8px; }
+.bloque + .bloque { border-top: 1px solid var(--regla); }
+
+.indice-lista { list-style: none; margin: 0 0 2rem; padding: 0; counter-reset: none; }
+.indice-lista li { padding: .9rem 0; border-bottom: 1px solid var(--regla); display: grid; grid-template-columns: 2.25rem 1fr; column-gap: .75rem; }
+.indice-lista li:first-child { border-top: 1px solid var(--regla); }
+.indice-n { color: var(--carmin); font-size: 1.4rem; line-height: 1.2; font-variant-numeric: oldstyle-nums; }
+.indice-titulo { font-size: 1.2rem; line-height: 1.3; }
+.indice-sumario { grid-column: 2; font-size: .875rem; line-height: 1.5; color: var(--tinta-media); margin: .25rem 0 0; }
+.indice-anexos { font-family: var(--interfaz); font-size: .875rem; color: var(--tinta-media); margin: 0; }
+
+.con-nota { position: relative; }
+.nota {
+  font-size: .8125rem;
+  line-height: 1.5;
+  color: var(--tinta-media);
+  margin: -.25rem 0 1.4rem;
+  padding-left: 12px;
+  border-left: 2px solid var(--carmin);
+}
+.nota-marca, .llamada { color: var(--carmin); font-weight: 500; }
+.llamada { font-family: var(--interfaz); font-size: .7em; text-decoration: none; }
+sup { line-height: 0; }
+
+.destacada {
+  margin: 2rem 0;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--regla);
+  border-bottom: 1px solid var(--regla);
+}
+.destacada p { font-size: 1.5rem; line-height: 1.35; font-style: italic; margin: 0; hyphens: manual; }
+
+.tabla-envoltura { overflow-x: auto; margin: 1.5rem 0 2rem; }
+table { width: 100%; border-collapse: collapse; font-size: .875rem; line-height: 1.45; }
+caption { text-align: left; font-size: .8125rem; color: var(--tinta-media); padding-bottom: .75rem; caption-side: top; }
+th, td { padding: .6rem .5rem; border-bottom: 1px solid var(--regla); vertical-align: top; text-align: left; }
+thead th { border-bottom: 1px solid var(--tinta); font-weight: 500; }
+.cifra { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.ficha { font-size: .875rem; line-height: 1.5; margin: 1.5rem 0; border-top: 1px solid var(--regla); }
+.ficha div { display: grid; grid-template-columns: 12rem 1fr; gap: 1rem; padding: .55rem 0; border-bottom: 1px solid var(--regla); }
+.ficha dt { color: var(--tinta-media); }
+.ficha dd { margin: 0; }
+
+.form-contacto { font-size: .9375rem; margin: 1.5rem 0; }
+.campo { margin-bottom: 1rem; }
+.campo label { display: block; margin-bottom: .3rem; }
+.campo input, .campo textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--tinta);
+  background: var(--papel);
+  border: 1px solid var(--tinta-media);
+  border-radius: 0;
+  padding: .55rem .6rem;
+  transition: border-color 150ms ease;
+}
+.campo input:focus, .campo textarea:focus { border-color: var(--carmin); }
+.campo textarea { min-height: 9rem; resize: vertical; }
+.boton {
+  font: inherit;
+  font-family: var(--interfaz);
+  color: var(--tinta);
+  background: var(--papel);
+  border: 1px solid var(--tinta);
+  border-radius: 0;
+  padding: .5rem 1.1rem;
+  cursor: pointer;
+  transition: color 150ms ease, border-color 150ms ease;
+}
+.boton:hover, .boton:focus-visible { color: var(--carmin); border-color: var(--carmin); }
+.form-estado { font-size: .875rem; color: var(--carmin); min-height: 1.5em; margin: .5rem 0 0; }
+.antiphishing { font-size: .875rem; line-height: 1.5; color: var(--tinta-media); padding-left: 12px; border-left: 2px solid var(--carmin); }
+
+.legal { border-top: 1px solid var(--regla); }
+.legal:last-of-type { border-bottom: 1px solid var(--regla); }
+.legal summary { cursor: pointer; padding: 1rem 0; list-style-position: outside; }
+.legal summary h3 { display: inline; font-size: 1.25rem; margin: 0; }
+.legal summary::marker { color: var(--carmin); }
+.legal[open] > .legal-cuerpo { animation: desplegar 200ms ease-out; }
+.legal-cuerpo { padding-bottom: 1.5rem; }
+.legal-cuerpo p, .legal-cuerpo li { font-size: 1.05rem; }
+.legal-cuerpo ul { padding-left: 1.25rem; margin: 0 0 1em; }
+.legal-fecha { font-size: .8125rem; color: var(--tinta-media); }
+@keyframes desplegar { from { opacity: 0; } to { opacity: 1; } }
+
+.colofon { padding-bottom: 72px; text-align: center; color: var(--tinta-media); }
+.colofon-interior { padding-top: 40px; border-top: 1px solid var(--tinta); }
+.colofon p { margin: 0 0 .6rem; hyphens: manual; line-height: 1.6; }
+.colofon-datos { font-size: .8125rem; }
+.colofon-titulo { font-family: var(--texto); font-size: 1.05rem; font-style: italic; color: var(--tinta); }
+.colofon a { color: var(--tinta-media); }
+
+.aviso-cookies {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  background: var(--papel);
+  border-top: 1px solid var(--tinta);
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+.aviso-cookies.visible { opacity: 1; transform: none; }
+.aviso-interior { padding-block: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; }
+.aviso-interior p { margin: 0; flex: 1 1 22rem; font-size: .875rem; }
+.aviso-botones { display: flex; gap: .75rem; font-size: .875rem; }
+
+@media screen and (min-width: 1100px) {
+  .pliego {
+    max-width: calc(66ch + var(--margen) + var(--calle) + 32px);
+    padding-left: calc(var(--margen) + var(--calle) + 16px);
+  }
+  .cap-num {
+    position: absolute;
+    top: 1rem;
+    left: calc(-1 * (var(--margen) + var(--calle)));
+    width: var(--margen);
+    text-align: right;
+    font-size: 3.4rem;
+    margin: 0;
+  }
+  .nota {
+    position: absolute;
+    top: .3rem;
+    left: calc(-1 * (var(--margen) + var(--calle)));
+    width: var(--margen);
+    margin: 0;
+    padding-left: 0;
+    border-left: 0;
+    text-align: right;
+  }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 1.125rem; }
+  .ficha div { grid-template-columns: 1fr; gap: .1rem; }
+  .cabeza-cap span { max-width: 48%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
+@media print {
+  @page { size: A4; margin: 18mm 16mm; }
+  body { font-size: 11pt; line-height: 1.45; }
+  .folio, .cabeza-cap, .aviso-cookies, .salto, .form-contacto, .cookie-revisar { display: none !important; }
+  main { padding: 0; }
+  .pliego { max-width: none; padding: 0; }
+  h2 { break-before: page; break-after: avoid; }
+  h3 { break-after: avoid; }
+  .destacada, figure, tr { break-inside: avoid; }
+  .nota { position: static; width: auto; text-align: left; margin: 0 0 1em; padding-left: 8pt; border-left: 1.5pt solid var(--carmin); }
+  details::details-content { content-visibility: visible; display: block; }
+  .legal summary { list-style: none; }
+  .legal summary::marker { content: ""; }
+  a { color: var(--tinta); text-decoration: none; }
+}
+</style>
 </head>
 <body>
-  <p>Si no eres redirigido automáticamente, <a href="https://web-production-1d56e.up.railway.app/">haz clic aquí</a>.</p>
+<a class="salto" href="#contenido">Saltar al contenido</a>
+<header class="folio">
+  <div class="folio-interior pliego">
+    <span class="folio-nombre">Medir con una regla que cambia</span>
+    <a href="#indice">Índice</a>
+  </div>
+</header>
+<main id="contenido">
+<article id="dossier" class="pliego" aria-labelledby="titulo-dossier">
+
+<header class="portada">
+  <p class="portada-serie">sixtime.online · Cuadernillo de método contable</p>
+  <h1 id="titulo-dossier">Medir con una regla que cambia: cuadernillo sobre el costo de reposición en un comercio pequeño</h1>
+  <p class="portada-sub">Qué le ocurre a la cuenta de un negocio cuando el precio de lo que vende cambia antes de volver a comprarlo.</p>
+  <p class="portada-firma">Por RICARDO DAVID JIMENEZ ARRIETA · Edición del <time datetime="2026-09-27">27 de septiembre de 2026</time></p>
+  <p class="portada-aviso">sixtime.online es un portal solo informativo. Este cuadernillo describe un método de medición; no ofrece asesoría contable, tributaria, legal ni financiera individual, ni hace pronósticos de ningún tipo.</p>
+  <figure class="motivo-principal">
+    <svg viewBox="0 0 640 200" role="img" aria-labelledby="motivo-titulo motivo-desc" xmlns="http://www.w3.org/2000/svg">
+      <title id="motivo-titulo">Dos barras de igual largo divididas en distinto número de unidades</title>
+      <desc id="motivo-desc">Ejemplo hipotético. La barra superior representa el importe de una venta al inicio del período, dividido en diez segmentos: las diez unidades de producto que ese importe permitía reponer. La barra inferior representa el mismo importe al final del período, dividido en ocho segmentos más anchos. Un corchete carmín sobre los dos últimos segmentos de la barra superior marca la diferencia de dos unidades.</desc>
+      <text class="svg-rotulo svg-tinta" x="40" y="58">Al inicio: una venta repone 10 unidades</text>
+      <path class="svg-corchete" d="M490 64 V54 H598 V64 M544 54 V46"/>
+      <text class="svg-rotulo svg-carmin" x="598" y="38" text-anchor="end">diferencia: 2 unidades</text>
+      <g>
+        <rect class="svg-papel" x="40" y="70" width="56" height="34"/>
+        <rect class="svg-papel" x="96" y="70" width="56" height="34"/>
+        <rect class="svg-papel" x="152" y="70" width="56" height="34"/>
+        <rect class="svg-papel" x="208" y="70" width="56" height="34"/>
+        <rect class="svg-papel" x="264" y="70" width="56" height="34"/>
+        <rect class="svg-papel" x="320" y="70" width="56" height="34"/>
+        <rect class="svg-papel" x="376" y="70" width="56" height="34"/>
+        <rect class="svg-papel" x="432" y="70" width="56" height="34"/>
+        <rect class="svg-papel" x="488" y="70" width="56" height="34"/>
+        <rect class="svg-papel" x="544" y="70" width="56" height="34"/>
+      </g>
+      <text class="svg-rotulo svg-tinta" x="40" y="140">Al final: la misma venta repone 8 unidades</text>
+      <g>
+        <rect class="svg-tinta" x="40" y="152" width="560" height="34"/>
+        <path class="svg-divisor" d="M110 152 V186 M180 152 V186 M250 152 V186 M320 152 V186 M390 152 V186 M460 152 V186 M530 152 V186"/>
+      </g>
+    </svg>
+    <figcaption>Figura 1. Ejemplo hipotético en base 100. Ambas barras miden lo mismo porque representan el mismo importe de una venta; lo que cambia es cuántas unidades de producto caben en él. El corchete señala las dos unidades que el importe ya no alcanza a reponer.</figcaption>
+  </figure>
+</header>
+
+<nav id="indice" class="bloque" aria-labelledby="titulo-indice">
+  <h2 id="titulo-indice">Índice del cuadernillo</h2>
+  <ol class="indice-lista">
+    <li><span class="indice-n">1</span><a class="indice-titulo" href="#capitulo-1">Por qué el resultado contable engaña cuando los precios se mueven</a><p class="indice-sumario">La resta entre venta y costo histórico mezcla dos momentos y trata como excedente lo que es mantenimiento.</p></li>
+    <li><span class="indice-n">2</span><a class="indice-titulo" href="#capitulo-2">La reposición como medida alternativa del costo</a><p class="indice-sumario">Medir el costo mirando la próxima compra en lugar de la anterior, y cómo obtener ese dato sin un departamento contable.</p></li>
+    <li><span class="indice-n">3</span><a class="indice-titulo" href="#capitulo-3">Cómo elegir una unidad de cuenta estable para comparar períodos</a><p class="indice-sumario">Criterios para construir una referencia propia que permita sumar y comparar meses distintos.</p></li>
+    <li><span class="indice-n">4</span><a class="indice-titulo" href="#capitulo-4">El margen expresado en unidades de producto en lugar de en dinero</a><p class="indice-sumario">Contar cuántas unidades repone cada venta como lectura física del margen.</p></li>
+    <li><span class="indice-n">5</span><a class="indice-titulo" href="#capitulo-5">Qué se registra para poder reconstruir el pasado</a><p class="indice-sumario">El registro mínimo, su frecuencia y el procedimiento para rehacer un período con datos incompletos.</p></li>
+  </ol>
+  <p class="indice-anexos"><a href="#apendice">Apéndice: variables de control</a> · <a href="#fuentes">Nota sobre las fuentes</a> · <a href="#nosotros">Nosotros</a> · <a href="#contacto">Contacto</a> · <a href="#descargo">Descargo de responsabilidad</a> · <a href="#politicas">Documentos legales</a></p>
+</nav>
+
+<section id="capitulo-1" class="bloque" aria-labelledby="titulo-cap-1">
+  <p class="cabeza-cap" aria-hidden="true"><span>Capítulo 1 · El resultado que engaña</span></p>
+  <h2 id="titulo-cap-1"><span class="cap-num">1</span>Por qué el resultado contable engaña cuando los precios se mueven</h2>
+  <p>Un comerciante cierra el mes, suma lo que vendió, resta lo que le costó la mercancía vendida y los gastos del local, y obtiene una cifra positiva. Las facturas cuadran y el cuaderno no tiene tachaduras. Sin embargo, cuando vuelve al proveedor para llenar los estantes, descubre que el dinero de la caja no alcanza para comprar la misma cantidad de producto que acaba de vender. La cuenta dice una cosa y el estante dice otra. Este cuadernillo parte de esa contradicción y la trata como lo que es: un problema de medición, no de pronóstico.</p>
+  <p>Aquí no se anticipa qué ocurrirá con los precios ni se sugiere ninguna conducta financiera. Se describe un fenómeno contable general, presente en cualquier entorno donde el precio de compra cambia entre la adquisición y la venta, y se proponen formas de registrarlo para distinguir qué parte del resultado corresponde a la actividad y qué parte al cambio de precios.</p>
+  <h3>La cuenta que cierra bien</h3>
+  <div class="con-nota">
+    <p>El cálculo habitual compara dos cifras expresadas en la misma palabra, dinero, pero tomadas en momentos distintos. El precio de venta se anota hoy; el costo de la mercancía se anotó cuando se compró, quizá semanas atrás. Si en ese intervalo los precios de compra cambiaron, el costo registrado corresponde a un nivel de precios que ya no existe. La resta es aritméticamente impecable y económicamente ambigua, porque mezcla unidades que llevan el mismo nombre sin tener el mismo poder de compra.<sup><a class="llamada" href="#nota-1-1">1.1</a></sup></p>
+    <aside class="nota" id="nota-1-1" aria-label="Nota 1.1"><span class="nota-marca">1.1</span> El costo histórico es el importe efectivamente pagado al adquirir la mercancía. Se comprueba con la factura y por eso la contabilidad lo toma como base, pero no dice cuánto costaría hoy comprar lo mismo.</aside>
+  </div>
+  <p>Un ejemplo hipotético en base 100 lo muestra sin recurrir a cifras reales. Una caja de producto se compra a 100 y se vende a 130. El cuaderno registra 30 de resultado por caja. Si al día siguiente el proveedor cobra 125 por la misma caja, quien quiera mantener su surtido deberá destinar 125 de los 130 cobrados a reponerla. Lo que queda para cubrir gastos y retribuir el trabajo no es 30, sino 5. Los 25 restantes no son un excedente: son lo que el cambio de precios exige para volver al punto de partida.</p>
+  <blockquote class="destacada"><p>Cuando los precios se mueven, la resta entre venta y costo histórico no mide cuánto rindió la actividad; mide cuánto se separaron dos fechas.</p></blockquote>
+  <h3>Dos momentos, una sola columna</h3>
+  <p>La contabilidad convencional no está equivocada: responde a otra pregunta. Mide el resultado en términos nominales, en la unidad monetaria tal como circula en cada fecha, y lo hace por buenas razones. La cifra es objetiva, se verifica con documentos y es la que suelen exigir las normas contables y tributarias. El problema surge cuando el comerciante usa esa cifra para decidir cuánto puede retirar, cuánto debe reponer o si su precio de venta basta. Ahí la cifra nominal puede inducir a error, porque trata como resultado lo que en parte es mantenimiento.</p>
+  <div class="con-nota">
+    <p>Un negocio pequeño funciona como un ciclo: se compra, se vende, se repone y se vuelve a vender. Si el dinero de la venta no alcanza para reponer, el ciclo se estrecha aunque las cuentas digan que cada venta dejó un excedente. Muchos comerciantes lo perciben como la sensación de trabajar igual y tener cada vez menos mercancía, pero no encuentran la cifra que lo confirme, porque su sistema de registro no está hecho para mostrarlo.<sup><a class="llamada" href="#nota-1-2">1.2</a></sup></p>
+    <aside class="nota" id="nota-1-2" aria-label="Nota 1.2"><span class="nota-marca">1.2</span> La literatura contable distingue entre mantener el capital financiero, medido en dinero nominal, y mantener la capacidad operativa, medida en los bienes que el negocio puede seguir moviendo.</aside>
+  </div>
+  <h3>Lo que el resultado no separa</h3>
+  <p>El resultado nominal reúne en una sola cifra tres componentes que conviene distinguir. El primero es el margen comercial propiamente dicho: la diferencia entre lo que se cobra y lo que cuesta reponer, que depende de cómo se compra, cómo se fija el precio y cómo se atiende. El segundo es el efecto de tenencia: la variación del precio de la mercancía mientras estuvo en el estante, que no depende de la gestión sino del tiempo transcurrido. El tercero son los gastos del local y del trabajo, que también cambian de precio y se pagan en fechas distintas a las de las ventas.</p>
+  <p>Separar esos componentes no exige abandonar la contabilidad formal, sino llevar junto a ella un registro de control interno que traduzca las cifras a una medida comparable. Ese registro no sustituye los libros obligatorios ni altera ninguna declaración. Cualquier ajuste por cambios de precios en los estados contables, y la forma de valorar el inventario, se rigen por la normativa contable y tributaria vigente en Guatemala y deben consultarse con un contador público o profesional habilitado. Lo que aquí se describe es una herramienta de lectura para entender el propio negocio.</p>
+  <p>Queda así planteada la primera pregunta. Si el costo histórico no sirve para saber cuánto cuesta mantener el surtido, hace falta otra medida del costo, una que mire hacia la próxima compra en lugar de hacia la anterior. El capítulo siguiente examina esa medida, el costo de reposición, y las dificultades de registrarlo en un comercio sin departamento contable.</p>
+</section>
+
+<section id="capitulo-2" class="bloque" aria-labelledby="titulo-cap-2">
+  <p class="cabeza-cap" aria-hidden="true"><span>Capítulo 2 · La reposición</span></p>
+  <h2 id="titulo-cap-2"><span class="cap-num">2</span>La reposición como medida alternativa del costo</h2>
+  <p>El costo de reposición es lo que costaría, en la fecha de la venta, volver a adquirir la misma mercancía en las mismas condiciones habituales de compra. No es lo que se pagó ni lo que se pagará con certeza, sino el precio vigente en el momento en que se toma la decisión de reponer. Su virtud es que coloca venta y costo en la misma fecha, de modo que la resta entre ambos vuelve a comparar magnitudes homogéneas.</p>
+  <h3>Mirar hacia la próxima compra</h3>
+  <div class="con-nota">
+    <p>Retomemos el ejemplo hipotético del capítulo anterior. La caja se compró a 100, se vendió a 130 y su precio de reposición el día de la venta era 125. Con el costo histórico, el resultado por caja es 30. Con el costo de reposición, es 5. La diferencia de 25 no desaparece: se registra aparte, como efecto de tenencia, y queda a la vista en lugar de confundirse con el margen. El comerciante no ha perdido información; la ha ordenado.<sup><a class="llamada" href="#nota-2-1">2.1</a></sup></p>
+    <aside class="nota" id="nota-2-1" aria-label="Nota 2.1"><span class="nota-marca">2.1</span> Resultado nominal igual a margen de reposición más efecto de tenencia. En el ejemplo: 30 es igual a 5 más 25. La identidad permite comprobar que ningún importe se ha perdido al separar.</aside>
+  </div>
+  <p>Esta separación cambia la lectura de cada venta. El margen de reposición indica si el precio de venta cubre, en la fecha de la operación, lo necesario para seguir operando con el mismo surtido. El efecto de tenencia indica cuánto de la cifra nominal proviene del tiempo que la mercancía pasó en el estante. Son dos informaciones distintas y cada una sirve para una pregunta distinta.</p>
+  <h3>Dónde se obtiene el precio de reposición</h3>
+  <p>La principal objeción práctica es que el precio de reposición no está en ninguna factura propia hasta que se vuelve a comprar. En un comercio pequeño, sin embargo, suele haber fuentes suficientes. La más directa es la última lista de precios del proveedor habitual o su cotización para el pedido siguiente. Otra es la factura de la compra más reciente del mismo artículo, aunque no se haya vendido todavía. Una tercera, cuando no hay lista ni compra reciente, es la consulta directa al proveedor anotada con fecha.</p>
+  <div class="con-nota">
+    <p>Lo importante no es la precisión absoluta, sino la regla. El comerciante decide qué fuente usará, la aplica siempre del mismo modo y anota la fecha en que obtuvo el dato. Un precio de reposición aproximado pero obtenido con un criterio constante da una lectura más útil que uno exacto obtenido cada vez de forma distinta, porque permite comparar un mes con otro sin que el método introduzca ruido propio.<sup><a class="llamada" href="#nota-2-2">2.2</a></sup></p>
+    <aside class="nota" id="nota-2-2" aria-label="Nota 2.2"><span class="nota-marca">2.2</span> Si un artículo deja de fabricarse, se toma como referencia el sustituto más cercano y se deja constancia del cambio para no mezclar series distintas.</aside>
+  </div>
+  <blockquote class="destacada"><p>Un precio de reposición aproximado, obtenido siempre con la misma regla, dice más que uno exacto obtenido cada vez de un modo diferente.</p></blockquote>
+  <h3>Qué cambia en la lectura del resultado</h3>
+  <p>Aplicado a un período completo, el procedimiento es sencillo. Por cada grupo de artículos se anota la cantidad vendida, el precio de venta, el costo histórico y el costo de reposición en la fecha de venta. El margen de reposición del período es la suma de las diferencias entre venta y reposición. El efecto de tenencia es la suma de las diferencias entre reposición y costo histórico. Ambos se leen por separado antes de restar los gastos.</p>
+  <p>No hace falta hacerlo artículo por artículo. En la mayoría de los negocios pequeños unos pocos productos concentran la mayor parte de las ventas, y basta con seguir a esos productos con cuidado y tratar el resto por grupos. La elección de qué grupos seguir es parte del método y conviene fijarla por escrito.</p>
+  <p>Hay límites que conviene reconocer. El costo de reposición depende de una fuente externa que el comerciante no controla y que puede cambiar de un día a otro. Además, cuando entre la venta y la siguiente compra transcurre mucho tiempo, el precio vigente en la fecha de la venta puede no coincidir con el que finalmente se pague. El método no elimina esa incertidumbre: la hace visible y la acota a una fecha concreta.</p>
+  <p>Tampoco debe confundirse este registro con la valoración contable del inventario. La norma aplicable puede exigir costo histórico, promedio u otro criterio, y el uso del costo de reposición en los estados contables solo procede si la normativa contable y tributaria vigente en Guatemala lo admite. Esa determinación corresponde a un contador público o profesional habilitado. Aquí el costo de reposición se usa como medida de control interno.</p>
+  <p>Resuelta la medida del costo en cada fecha, aparece un problema nuevo. Los márgenes de reposición de enero y de junio están expresados en dinero de enero y en dinero de junio, y sumarlos o compararlos vuelve a mezclar unidades distintas. El capítulo siguiente trata de cómo construir una unidad de cuenta estable que permita hacer esa comparación.</p>
+</section>
+
+<!-- Unidad publicitaria 1: insertar aquí el bloque de anuncio, entre el capítulo 2 y el capítulo 3 completos. No insertar anuncios dentro de un capítulo, del apéndice, de las notas al margen ni de los documentos legales. -->
+
+<section id="capitulo-3" class="bloque" aria-labelledby="titulo-cap-3">
+  <p class="cabeza-cap" aria-hidden="true"><span>Capítulo 3 · La unidad de cuenta</span></p>
+  <h2 id="titulo-cap-3"><span class="cap-num">3</span>Cómo elegir una unidad de cuenta estable para comparar períodos</h2>
+  <p>Una unidad de cuenta es la medida en que se expresan las cifras para poder sumarlas y compararlas. En contabilidad se da por supuesto que esa medida es la moneda de curso, y mientras los precios cambian poco el supuesto no causa problemas. Cuando cambian de forma apreciable, sumar importes de meses distintos equivale a sumar metros y pies sin convertirlos. El resultado es un número, pero no una medida.</p>
+  <h3>El problema de sumar meses distintos</h3>
+  <div class="con-nota">
+    <p>Supongamos, como ejemplo hipotético, que un comercio obtiene un margen de reposición de 50 en el primer mes y de 60 en el sexto. A primera vista el margen creció. Pero si en ese intervalo el conjunto de cosas que el negocio necesita comprar pasó de costar 100 a costar 130, los 60 del sexto mes compran menos que los 50 del primero. Para decir si el margen creció o se redujo hace falta expresar ambas cifras en una misma medida.<sup><a class="llamada" href="#nota-3-1">3.1</a></sup></p>
+    <aside class="nota" id="nota-3-1" aria-label="Nota 3.1"><span class="nota-marca">3.1</span> Expresados en la medida del primer mes, los 60 del sexto equivalen a 60 multiplicado por 100 y dividido entre 130, es decir, algo más de 46.</aside>
+  </div>
+  <p>La unidad de cuenta estable es, por tanto, un concepto metodológico: una referencia que el comerciante construye para traducir cifras de fechas distintas a una base común. No es una moneda, ni una recomendación sobre en qué cobrar o guardar, ni una previsión. Es una regla de conversión interna, del mismo tipo que la que usa un laboratorio cuando corrige sus mediciones por temperatura.</p>
+  <h3>Tres construcciones posibles</h3>
+  <p>La primera construcción es el producto testigo. Se elige un artículo representativo del negocio, que se venda de forma regular y cuyo precio de reposición sea fácil de obtener, y se expresan todas las cifras en cantidades de ese artículo. Un margen de 60 cuando el testigo cuesta 12 equivale a cinco unidades de testigo. Es la construcción más sencilla y la más fácil de explicar, aunque depende de que el artículo elegido no tenga movimientos de precio propios que lo aparten del resto.</p>
+  <div class="con-nota">
+    <p>La segunda es la canasta propia. En lugar de un solo artículo se toma un pequeño conjunto, por ejemplo los cinco que más pesan en las compras, cada uno con una ponderación fija según su participación habitual. Se calcula el costo de reposición de la canasta al inicio, se le asigna el valor 100, y cada mes se recalcula. La relación entre el valor de un mes y el inicial sirve para convertir cualquier cifra a la base de partida.<sup><a class="llamada" href="#nota-3-2">3.2</a></sup></p>
+    <aside class="nota" id="nota-3-2" aria-label="Nota 3.2"><span class="nota-marca">3.2</span> Las ponderaciones se fijan una vez y no se cambian mes a mes; si la composición del negocio cambia mucho, se abre una canasta nueva y se deja constancia del empalme.</aside>
+  </div>
+  <p>La tercera es la canasta de gastos. Algunos negocios prefieren medir no lo que compran para vender, sino lo que necesitan para operar: alquiler, servicios, transporte, sueldos. La construcción es la misma, pero la pregunta que responde es distinta. La canasta de compras indica si el negocio puede reponer su surtido; la de gastos, si puede sostener su funcionamiento. Nada impide llevar ambas, siempre que no se mezclen.</p>
+  <blockquote class="destacada"><p>La unidad de cuenta estable no es algo que se encuentra hecho: es una regla que el propio comerciante fija y se compromete a no cambiar.</p></blockquote>
+  <h3>Criterios de elección</h3>
+  <p>Para decidir entre estas construcciones sirven cuatro criterios. Representatividad: la referencia debe parecerse a lo que el negocio realmente compra o gasta. Disponibilidad: el dato debe poder obtenerse cada mes sin esfuerzo desproporcionado. Continuidad: la referencia debe poder mantenerse durante muchos períodos, porque su valor está en la comparación. Sencillez: debe poder explicarse a otra persona en pocas líneas, lo que obliga a evitar ajustes que nadie más pueda reproducir.</p>
+  <p>Ninguna construcción es perfecta. El producto testigo es sencillo pero frágil; la canasta es más estable pero exige más registro. Lo decisivo es escribir la regla elegida antes de empezar a usarla, con la lista de artículos, las ponderaciones, la fuente de cada precio y la fecha base, y guardarla junto a los registros del período. Sin ese documento, dentro de un año nadie sabrá cómo se obtuvieron las cifras.</p>
+  <p>Conviene insistir en el alcance. La unidad de cuenta estable descrita aquí es una herramienta interna de lectura. La moneda en que deben llevarse los libros, la forma de expresar los estados contables y cualquier reexpresión por cambios de precios están determinadas por la normativa contable y tributaria vigente en Guatemala, y su aplicación debe consultarse con un contador público o profesional habilitado.</p>
+  <p>Con una medida del costo en cada fecha y una regla para comparar fechas, el comerciante ya puede leer su resultado sin mezclar momentos. Pero todavía lo lee en importes, y los importes siguen siendo abstractos para quien piensa en cajas, sacos o piezas. El capítulo siguiente propone expresar el margen directamente en unidades de producto.</p>
+</section>
+
+<section id="capitulo-4" class="bloque" aria-labelledby="titulo-cap-4">
+  <p class="cabeza-cap" aria-hidden="true"><span>Capítulo 4 · El margen en unidades</span></p>
+  <h2 id="titulo-cap-4"><span class="cap-num">4</span>El margen expresado en unidades de producto en lugar de en dinero</h2>
+  <figure class="motivo-reducido">
+    <svg viewBox="0 0 320 130" role="img" aria-labelledby="motivo2-titulo motivo2-desc" xmlns="http://www.w3.org/2000/svg">
+      <title id="motivo2-titulo">Versión reducida del motivo de las dos barras</title>
+      <desc id="motivo2-desc">Ejemplo hipotético. Una barra superior con diez segmentos y otra inferior del mismo largo con ocho; un corchete carmín marca los dos segmentos de diferencia.</desc>
+      <path class="svg-corchete" d="M254 40 V32 H310 V40 M282 32 V26"/>
+      <text class="svg-rotulo svg-carmin" x="282" y="18" text-anchor="middle">2 u.</text>
+      <text class="svg-rotulo svg-tinta" x="10" y="36">Inicio: 10 u.</text>
+      <g>
+        <rect class="svg-papel" x="10" y="44" width="30" height="22"/>
+        <rect class="svg-papel" x="40" y="44" width="30" height="22"/>
+        <rect class="svg-papel" x="70" y="44" width="30" height="22"/>
+        <rect class="svg-papel" x="100" y="44" width="30" height="22"/>
+        <rect class="svg-papel" x="130" y="44" width="30" height="22"/>
+        <rect class="svg-papel" x="160" y="44" width="30" height="22"/>
+        <rect class="svg-papel" x="190" y="44" width="30" height="22"/>
+        <rect class="svg-papel" x="220" y="44" width="30" height="22"/>
+        <rect class="svg-papel" x="250" y="44" width="30" height="22"/>
+        <rect class="svg-papel" x="280" y="44" width="30" height="22"/>
+      </g>
+      <text class="svg-rotulo svg-tinta" x="10" y="92">Final: 8 u.</text>
+      <g>
+        <rect class="svg-tinta" x="10" y="100" width="300" height="22"/>
+        <path class="svg-divisor" d="M47.5 100 V122 M85 100 V122 M122.5 100 V122 M160 100 V122 M197.5 100 V122 M235 100 V122 M272.5 100 V122"/>
+      </g>
+    </svg>
+    <figcaption>Figura 2. El mismo importe de venta, leído en unidades de producto al inicio y al final de un período hipotético.</figcaption>
+  </figure>
+  <p>Un comerciante rara vez piensa su negocio en importes. Piensa en cajas, en sacos, en piezas, en cuántas le quedan y cuántas necesita pedir. Esa forma de pensar, que la contabilidad suele traducir a dinero para poder sumar, contiene una medida que resiste mejor los cambios de precios: la cantidad física de producto que cada venta permite reponer.</p>
+  <h3>Contar unidades en vez de importes</h3>
+  <div class="con-nota">
+    <p>La operación consiste en dividir el importe cobrado por una venta entre el costo de reposición de una unidad en la misma fecha. En el ejemplo hipotético que recorre este cuadernillo, una venta de 130 con un costo de reposición de 125 permite reponer 1,04 unidades. Por cada 100 unidades vendidas, el negocio puede reponer 104. El margen físico es de 4 unidades por cada 100, antes de gastos.<sup><a class="llamada" href="#nota-4-1">4.1</a></sup></p>
+    <aside class="nota" id="nota-4-1" aria-label="Nota 4.1"><span class="nota-marca">4.1</span> Calculado con el costo histórico de 100, el mismo margen aparentaría 30 unidades por cada 100. La diferencia entre 30 y 4 es la que el capítulo primero llamó efecto de tenencia.</aside>
+  </div>
+  <p>La figura que abre este capítulo muestra la misma idea desde el lado del importe. Una suma fija que al inicio del período alcanzaba para diez unidades alcanza al final para ocho. La barra no se acortó; se dividió en menos partes. Leer el margen en unidades obliga a mirar esa división y no el largo de la barra.</p>
+  <h3>El margen físico</h3>
+  <p>El margen físico tiene dos ventajas. La primera es que no necesita unidad de cuenta auxiliar para compararse entre períodos: cuatro unidades por cada cien en enero y cuatro en junio significan lo mismo, cualquiera que haya sido el movimiento de precios. La segunda es que habla el idioma del negocio. Un comerciante entiende sin explicación que, si cada cien unidades vendidas solo le permiten reponer ciento cuatro, las cuatro de diferencia tienen que alcanzar para pagar el local, el transporte y su propio trabajo.</p>
+  <div class="con-nota">
+    <p>Los gastos pueden expresarse en la misma medida. Si el alquiler del mes equivale, al costo de reposición vigente, a 40 unidades de producto, y el negocio vende 1.000 unidades con un margen físico de 4 por cada 100, el margen del mes es de 40 unidades y cubre exactamente el alquiler. Todo en cifras hipotéticas, pero con una lectura inmediata.<sup><a class="llamada" href="#nota-4-2">4.2</a></sup></p>
+    <aside class="nota" id="nota-4-2" aria-label="Nota 4.2"><span class="nota-marca">4.2</span> Cuando el negocio vende muchos artículos distintos, se usa el producto testigo o la canasta del capítulo tercero como unidad física común.</aside>
+  </div>
+  <blockquote class="destacada"><p>La barra no se acorta; se divide en menos partes. El margen en unidades obliga a mirar la división y no el largo.</p></blockquote>
+  <h3>Lectura conjunta</h3>
+  <p>El margen físico no reemplaza al margen en importes ni al resultado contable. Cada uno responde a una pregunta. El resultado contable dice lo que las normas consideran resultado del período. El margen de reposición en unidad de cuenta estable dice si el negocio conserva su capacidad de operar en términos comparables. El margen físico dice cuántas unidades de producto genera la actividad por encima de las que consume.</p>
+  <p>Tiene también sus limitaciones. Funciona bien en negocios con pocos artículos o con un artículo dominante, y pierde claridad cuando el surtido es muy variado o cambia con frecuencia. Además, no captura cambios de calidad ni de presentación: si el proveedor entrega cajas más pequeñas al mismo precio, el conteo en cajas ocultaría la diferencia, y hay que registrarla aparte.</p>
+  <p>Como el resto de las medidas de este cuadernillo, el margen físico es una herramienta de control interno. No sustituye la información que la normativa contable y tributaria vigente en Guatemala exige presentar, y cualquier decisión que se derive de él en materia contable o fiscal debe consultarse con un contador público o profesional habilitado.</p>
+  <p>Todas las medidas descritas hasta aquí comparten una condición: necesitan datos que no siempre se guardan. Para calcular el margen físico de hace seis meses hay que saber qué costaba reponer entonces, y ese dato suele perderse. El último capítulo trata de qué conviene registrar para poder reconstruir el pasado.</p>
+</section>
+
+<!-- Unidad publicitaria 2: insertar aquí el bloque de anuncio, entre el capítulo 4 y el capítulo 5 completos. No insertar anuncios dentro de un capítulo, del apéndice, de las notas al margen ni de los documentos legales. -->
+
+<section id="capitulo-5" class="bloque" aria-labelledby="titulo-cap-5">
+  <p class="cabeza-cap" aria-hidden="true"><span>Capítulo 5 · El registro</span></p>
+  <h2 id="titulo-cap-5"><span class="cap-num">5</span>Qué se registra para poder reconstruir el pasado</h2>
+  <p>Las medidas de los capítulos anteriores son sencillas de calcular cuando se tienen los datos y casi imposibles de rehacer cuando no. El precio de reposición de un artículo en una fecha pasada no queda escrito en ningún documento propio si ese día no se compró nada. La lista de precios del proveedor se sustituye por la nueva y la anterior se tira. Por eso el método depende menos del cálculo que de la disciplina de registro.</p>
+  <h3>El registro mínimo</h3>
+  <div class="con-nota">
+    <p>El registro mínimo tiene cinco columnas por cada artículo seguido o por cada grupo: fecha, cantidad vendida, importe cobrado, costo histórico de lo vendido y costo de reposición vigente en esa fecha con indicación de su fuente. A ello se añade, una vez al mes, el valor de la canasta o del producto testigo elegido como unidad de cuenta y la relación de gastos del período.<sup><a class="llamada" href="#nota-5-1">5.1</a></sup></p>
+    <aside class="nota" id="nota-5-1" aria-label="Nota 5.1"><span class="nota-marca">5.1</span> La fuente puede ser una sigla fija: L para lista de proveedor, F para factura reciente, C para consulta directa. Lo que importa es poder saber después de dónde salió cada cifra.</aside>
+  </div>
+  <p>No hace falta un programa especializado. Un cuaderno con columnas fijas o una hoja de cálculo sencilla bastan, siempre que el formato no cambie de un mes a otro. La tentación de mejorar el formato sobre la marcha es la principal causa de series que no se pueden comparar. Si una columna resulta insuficiente, se añade otra al final y se anota desde qué fecha existe, sin alterar las anteriores; así los meses viejos y los nuevos siguen leyéndose con la misma plantilla y cualquier persona que retome el cuaderno sabe qué dato faltaba en cada tramo.</p>
+  <h3>Frecuencia y disciplina</h3>
+  <p>La frecuencia debe ajustarse a la velocidad con que cambian los precios que interesan. Si los precios de reposición cambian poco dentro del mes, basta con un registro mensual del precio y un registro diario de las ventas. Si cambian con frecuencia, conviene anotar el precio de reposición cada vez que se recibe una lista nueva o se hace una compra, y usar para cada venta el último precio conocido. La regla debe escribirse y respetarse.</p>
+  <div class="con-nota">
+    <p>Tan importante como anotar es conservar. Las listas de precios, las cotizaciones y las facturas de compra que se usaron como fuente deben guardarse ordenadas por fecha. Una fotografía fechada o una carpeta por mes resuelven la mayor parte del problema. Sin esos documentos, el registro no puede comprobarse, y un registro que no puede comprobarse pierde su valor como control.<sup><a class="llamada" href="#nota-5-2">5.2</a></sup></p>
+    <aside class="nota" id="nota-5-2" aria-label="Nota 5.2"><span class="nota-marca">5.2</span> Los plazos de conservación de documentos contables y fiscales los fija la normativa aplicable; el registro de control interno puede seguir el mismo calendario.</aside>
+  </div>
+  <blockquote class="destacada"><p>El método depende menos del cálculo que de la costumbre de anotar la fecha y la fuente de cada precio.</p></blockquote>
+  <h3>Cómo se reconstruye un período</h3>
+  <p>Cuando el registro está completo, reconstruir un período es un ejercicio ordenado. Primero se agrupan las ventas por artículo o grupo. Después se asigna a cada venta el costo de reposición vigente en su fecha. Luego se calcula el margen de reposición y el efecto de tenencia, y se comprueba que su suma coincide con el resultado nominal. Por último se convierten las cifras a la unidad de cuenta estable o a unidades de producto, según la pregunta que se quiera responder.</p>
+  <p>Cuando el registro está incompleto, se puede reconstruir de forma aproximada, siempre que la aproximación quede declarada. Si falta el precio de reposición de una semana, se usa el último conocido anterior y se marca la cifra como estimada. Si falta la canasta de un mes, se interpola entre los meses vecinos y se anota que se hizo así. La reconstrucción aproximada es útil mientras nadie la confunda con una medición directa.</p>
+  <p>Este registro tampoco reemplaza a los libros ni a los comprobantes que la ley exige llevar. La normativa contable y tributaria vigente en Guatemala determina qué documentos deben emitirse y conservarse, y por cuánto tiempo, y conviene verificarlo con un contador público o profesional habilitado antes de organizar el archivo.</p>
+  <p>Con este capítulo se cierra el recorrido: una medida del costo que mira hacia la reposición, una regla para comparar períodos, una lectura del margen en unidades físicas y un registro que permita volver sobre todo ello. Queda una pregunta práctica: qué variables hay que vigilar para saber si el método se está aplicando bien. El apéndice las reúne en una tabla y describe con franqueza lo que el método no puede hacer.</p>
+</section>
+
+<section id="apendice" class="bloque" aria-labelledby="titulo-apendice">
+  <p class="cabeza-cap" aria-hidden="true"><span>Apéndice</span></p>
+  <h2 id="titulo-apendice">Apéndice: variables de control del método</h2>
+  <p>La tabla reúne las ocho variables que conviene vigilar en cada período. Los valores corresponden al ejemplo hipotético que recorre el cuadernillo, en base 100: una caja comprada a 100, vendida a 130 y con un costo de reposición de 125 en la fecha de venta.</p>
+  <div class="tabla-envoltura">
+    <table>
+      <caption>Tabla 1. Variables de control con valores de un ejemplo hipotético en base 100</caption>
+      <thead>
+        <tr>
+          <th scope="col">Variable</th>
+          <th scope="col">Cómo se obtiene</th>
+          <th scope="col" class="cifra">Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Precio de venta por unidad</th><td>Importe cobrado dividido entre unidades vendidas</td><td class="cifra">130</td></tr>
+        <tr><th scope="row">Costo histórico por unidad</th><td>Factura de la compra de la que salió lo vendido</td><td class="cifra">100</td></tr>
+        <tr><th scope="row">Costo de reposición por unidad</th><td>Lista, factura reciente o consulta, en la fecha de venta</td><td class="cifra">125</td></tr>
+        <tr><th scope="row">Margen nominal por unidad</th><td>Precio de venta menos costo histórico</td><td class="cifra">30</td></tr>
+        <tr><th scope="row">Margen de reposición por unidad</th><td>Precio de venta menos costo de reposición</td><td class="cifra">5</td></tr>
+        <tr><th scope="row">Efecto de tenencia por unidad</th><td>Costo de reposición menos costo histórico</td><td class="cifra">25</td></tr>
+        <tr><th scope="row">Unidades que repone un importe de 1.000 al costo inicial</th><td>1.000 dividido entre el costo histórico</td><td class="cifra">10</td></tr>
+        <tr><th scope="row">Unidades que repone el mismo importe al costo de reposición</th><td>1.000 dividido entre el costo de reposición</td><td class="cifra">8</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>Limitaciones del método</h3>
+  <p>El método descrito es una herramienta de lectura y tiene límites que conviene declarar. El primero es su dependencia de fuentes externas: el costo de reposición se obtiene de listas, cotizaciones o compras recientes que el comerciante no controla, y un dato mal tomado se propaga a todas las medidas derivadas. La constancia en la regla de obtención reduce ese riesgo, pero no lo elimina.</p>
+  <p>El segundo límite es la representatividad. El producto testigo y la canasta propia simplifican un surtido real que suele ser más variado, y cuando la composición del negocio cambia, la referencia envejece. Abrir una referencia nueva y declarar el empalme es posible, pero cada empalme introduce una discontinuidad en la serie.</p>
+  <p>El tercero es el costo de registro. Llevar fechas, fuentes y precios de reposición exige tiempo, y un registro incompleto obliga a estimaciones que deben marcarse como tales. En negocios con surtidos muy amplios o rotación muy rápida, el esfuerzo puede superar la utilidad si no se concentra en los artículos principales.</p>
+  <p>El cuarto es de alcance. El método no predice precios, no indica qué precio de venta fijar ni cómo financiar el negocio, y no sustituye la contabilidad formal. La valoración del inventario, la moneda de los libros y cualquier ajuste por cambios de precios se rigen por la normativa contable y tributaria vigente en Guatemala y deben consultarse con un contador público o profesional habilitado. Finalmente, todos los valores de este cuadernillo son hipotéticos y sirven solo para ilustrar el procedimiento.</p>
+</section>
+
+<section id="fuentes" class="bloque" aria-labelledby="titulo-fuentes">
+  <p class="cabeza-cap" aria-hidden="true"><span>Nota sobre las fuentes</span></p>
+  <h2 id="titulo-fuentes">Nota sobre las fuentes</h2>
+  <p>El contenido se apoya en conceptos de contabilidad de uso general y ampliamente documentados en la enseñanza de la disciplina: la distinción entre costo histórico y costo corriente o de reposición, la diferencia entre mantenimiento del capital financiero y de la capacidad operativa, la separación entre resultado de operación y resultado de tenencia, y las técnicas elementales de números índice para expresar cifras de distintas fechas en una base común.</p>
+  <p>Son interpretación del autor la organización del método en cinco pasos, la propuesta de leer el margen en unidades de producto, los criterios para elegir una unidad de cuenta y el formato del registro mínimo. Esas propuestas no reproducen ninguna norma oficial y no deben tomarse como tales.</p>
+  <p>Los ejemplos se construyeron en base 100 con valores inventados y se verificaron aritméticamente uno por uno, comprobando que margen de reposición y efecto de tenencia sumen el resultado nominal. El texto se revisó para eliminar cualquier referencia a coyunturas, entidades o periodos concretos. Si detecta un error, puede comunicarlo por los medios indicados en la sección de contacto.</p>
+</section>
+</article>
+
+<div class="pliego">
+<section id="nosotros" class="bloque" aria-labelledby="titulo-nosotros">
+  <h2 id="titulo-nosotros">Nosotros</h2>
+  <p>sixtime.online es un portal informativo editado por RICARDO DAVID JIMENEZ ARRIETA, que redacta y revisa los contenidos publicados. El sitio publica material de lectura sobre métodos de medición y registro para comercios pequeños, tratado de forma general y sin referencia a situaciones particulares.</p>
+  <h3>Cómo se elabora el contenido</h3>
+  <p>Cada texto parte de conceptos contables de uso general, se redacta con ejemplos hipotéticos en base 100 o en unidades de producto, y se revisa para comprobar la aritmética de los ejemplos y la ausencia de datos de coyuntura, recomendaciones o pronósticos. La nota sobre las fuentes de cada cuadernillo indica qué parte es interpretación del autor.</p>
+  <h3>Corrección de errores</h3>
+  <p>Cuando se detecta un error, se corrige en el texto y se actualiza la fecha de edición. Las correcciones que cambian el sentido de un pasaje se indican en la nota sobre las fuentes. Los avisos de error pueden enviarse al correo de soporte y se responden en un plazo de diez días hábiles.</p>
+  <h3>Financiación</h3>
+  <p>El sitio es gratuito para el lector y se financia mediante publicidad de terceros, en particular mediante los anuncios servidos por Google. Los anunciantes no intervienen en la selección ni en la redacción de los contenidos, y los anuncios se sitúan siempre fuera del cuerpo de los capítulos.</p>
+  <h3>Límite de la actividad</h3>
+  <p>sixtime.online no presta servicios financieros, contables, tributarios ni legales, no gestiona dinero de terceros, no vende productos y no ofrece asesoría individual. La aplicación de cualquier método descrito a un negocio concreto debe consultarse con un contador público o profesional habilitado.</p>
+  <h3>Ficha del titular</h3>
+  <dl class="ficha">
+    <div><dt>Nombre del sitio</dt><dd>sixtime.online</dd></div>
+    <div><dt>Titular</dt><dd>RICARDO DAVID JIMENEZ ARRIETA</dd></div>
+    <div><dt>Dominio</dt><dd>sixtime.online</dd></div>
+    <div><dt>Correo de soporte</dt><dd><a href="mailto:soporte@sixtime.online">soporte@sixtime.online</a></dd></div>
+    <div><dt>Dirección comercial</dt><dd>Anillo Periférico Diag. 12, Cdad. de Guatemala, Guatemala</dd></div>
+    <div><dt>Teléfono</dt><dd><a href="tel:+50224728154">+502 2472 8154</a></dd></div>
+    <div><dt>País y normativa de datos</dt><dd>Guatemala · Constitución Política de la República de Guatemala, artículos 24 y 31, y Ley de Acceso a la Información Pública, Decreto número 57-2008</dd></div>
+  </dl>
+</section>
+
+<section id="contacto" class="bloque" aria-labelledby="titulo-contacto">
+  <h2 id="titulo-contacto">Contacto</h2>
+  <p>Para consultas sobre el contenido, avisos de error o ejercicio de derechos sobre datos personales, puede escribir o llamar a:</p>
+  <ul>
+    <li>Titular: RICARDO DAVID JIMENEZ ARRIETA</li>
+    <li>Correo: <a href="mailto:soporte@sixtime.online">soporte@sixtime.online</a></li>
+    <li>Teléfono: <a href="tel:+50224728154">+502 2472 8154</a></li>
+    <li>Dirección: Anillo Periférico Diag. 12, Cdad. de Guatemala, Guatemala</li>
+    <li>Sitio: sixtime.online</li>
+  </ul>
+  <p class="antiphishing">Aviso de seguridad: sixtime.online nunca solicita contraseñas, números de tarjeta, datos bancarios, códigos de verificación ni pagos por correo, teléfono o mensajería. Solo escribimos desde la dirección soporte@sixtime.online. Si recibe un mensaje que dice venir de este sitio y le pide algo de eso, no responda y avísenos.</p>
+  <form id="form-contacto" class="form-contacto" action="mailto:soporte@sixtime.online" method="post" enctype="text/plain" autocomplete="off">
+    <div class="campo">
+      <label for="campo-nombre">Nombre</label>
+      <input id="campo-nombre" name="nombre" type="text" required maxlength="80" autocomplete="off">
+    </div>
+    <div class="campo">
+      <label for="campo-correo">Correo electrónico</label>
+      <input id="campo-correo" name="correo" type="email" required maxlength="120" autocomplete="off">
+    </div>
+    <div class="campo">
+      <label for="campo-mensaje">Mensaje</label>
+      <textarea id="campo-mensaje" name="mensaje" required minlength="20" maxlength="2000" autocomplete="off"></textarea>
+    </div>
+    <button class="boton" type="submit">Preparar el correo</button>
+    <p id="form-estado" class="form-estado" role="status" aria-live="polite"></p>
+  </form>
+  <p>El formulario no envía datos a ningún servidor: prepara un mensaje en su propio programa de correo, que usted revisa y envía. El tratamiento de los datos que nos remita se describe en la <a href="#privacidad">Política de Privacidad</a>.</p>
+</section>
+
+<section id="descargo" class="bloque" aria-labelledby="titulo-descargo">
+  <h2 id="titulo-descargo">Descargo de responsabilidad</h2>
+  <p>sixtime.online, operado por RICARDO DAVID JIMENEZ ARRIETA, es un portal puramente informativo. No presta intermediación financiera, no capta dinero del público, no ofrece asesoría de inversión personalizada y no concede créditos. Tampoco realiza pronósticos económicos, no publica tipos de cambio y no recomienda monedas, activos ni instrumentos de ninguna clase. No presta asesoría contable, tributaria ni legal individual.</p>
+  <p>Los métodos descritos son de carácter general y los ejemplos son hipotéticos. La elección de la unidad de medida contable, el tratamiento de la reposición y cualquier ajuste por cambios de precios se rigen por la normativa contable y tributaria vigente en Guatemala y deben consultarse con un contador público o profesional habilitado. El texto completo figura en el <a href="#descargo-legal">documento de Descargo de Responsabilidad</a>.</p>
+</section>
+
+<section id="politicas" class="bloque" aria-labelledby="titulo-politicas">
+  <h2 id="titulo-politicas">Documentos legales</h2>
+  <p>Los cuatro documentos comparten fecha de última actualización: 27 de septiembre de 2026. Pulse sobre cada título para desplegarlo.</p>
+
+  <details id="privacidad" class="legal">
+    <summary><h3>Política de Privacidad</h3></summary>
+    <div class="legal-cuerpo">
+      <p class="legal-fecha">Última actualización: 27 de septiembre de 2026</p>
+      <h4>1. Responsable del tratamiento</h4>
+      <p>El responsable de los datos personales tratados en sixtime.online es RICARDO DAVID JIMENEZ ARRIETA, con domicilio en Anillo Periférico Diag. 12, Cdad. de Guatemala, Guatemala, correo soporte@sixtime.online y teléfono +502 2472 8154.</p>
+      <h4>2. Marco normativo</h4>
+      <p>Guatemala no cuenta a la fecha de esta política con una ley general de protección de datos personales aplicable a particulares. El derecho a la intimidad y a la protección de la información personal se funda en la Constitución Política de la República de Guatemala, en particular en su artículo 24, sobre inviolabilidad de correspondencia, documentos y libros, y en su artículo 31, sobre acceso a archivos y registros. La Ley de Acceso a la Información Pública, Decreto número 57-2008 del Congreso de la República, define los datos personales y los datos sensibles y regula el hábeas data en su capítulo correspondiente, con obligaciones dirigidas a los sujetos obligados por esa ley. Aunque sixtime.online no es sujeto obligado, adopta voluntariamente sus principios de consentimiento, finalidad, acceso y rectificación, y aplicará cualquier ley de protección de datos que entre en vigor.</p>
+      <h4>3. Datos que se recogen</h4>
+      <ul>
+        <li>Datos que usted envía por correo electrónico, incluido el mensaje preparado con el formulario de contacto: nombre, dirección de correo y contenido del mensaje.</li>
+        <li>Datos técnicos de navegación registrados por el servidor de alojamiento: dirección IP, fecha y hora de acceso, página solicitada, navegador y sistema operativo.</li>
+        <li>Datos recogidos por cookies y tecnologías similares de terceros, en particular de Google, según se describe en la Política de Cookies.</li>
+        <li>La preferencia sobre cookies que usted elija, guardada solo en su propio navegador.</li>
+      </ul>
+      <p>El sitio no solicita datos sensibles ni datos de pago y no requiere registro de usuarios.</p>
+      <h4>4. Finalidad y base del tratamiento</h4>
+      <p>Los datos enviados por correo se usan únicamente para responder a su consulta o atender el ejercicio de sus derechos, con base en su consentimiento, que otorga al escribir. Los datos técnicos se usan para mantener la seguridad y el funcionamiento del sitio, con base en el interés legítimo del titular en proteger el servicio. Los datos de cookies publicitarias se usan para mostrar anuncios, con base en su consentimiento, que puede retirar en cualquier momento.</p>
+      <h4>5. Plazo de conservación</h4>
+      <p>Los mensajes de correo se conservan durante doce meses desde la última comunicación y después se eliminan, salvo que deban conservarse para atender una reclamación. Los registros técnicos del servidor se conservan durante el plazo que fije el proveedor de alojamiento, con un máximo de doce meses. La preferencia de cookies permanece en su navegador hasta que usted la borre.</p>
+      <h4>6. Terceros que intervienen</h4>
+      <ul>
+        <li>Google, como proveedor de publicidad, que trata datos conforme a su propia política de privacidad.</li>
+        <li>El proveedor de alojamiento web, que trata los registros técnicos por cuenta del titular.</li>
+        <li>El proveedor del servicio de correo electrónico por el que se reciben y responden los mensajes.</li>
+      </ul>
+      <p>No se venden ni se ceden datos personales a otros terceros, salvo obligación legal o requerimiento de autoridad competente.</p>
+      <h4>7. Transferencias fuera del país</h4>
+      <p>Los proveedores de publicidad, alojamiento y correo pueden almacenar o tratar datos en servidores situados fuera de Guatemala, en los países donde cada proveedor mantiene su infraestructura. Al aceptar las cookies publicitarias y al escribirnos, usted consiente estas transferencias, que se limitan a lo necesario para prestar cada servicio.</p>
+      <h4>8. Derechos de acceso, rectificación, cancelación y oposición</h4>
+      <p>Puede solicitar el acceso a sus datos, su rectificación, su cancelación o la oposición a su tratamiento escribiendo a soporte@sixtime.online con el asunto «Derechos sobre datos personales», indicando su nombre, el derecho que ejerce y la dirección de correo con la que se comunicó. Si hiciera falta confirmar su identidad, se le pedirá un medio razonable y proporcionado. La solicitud se responderá en un plazo máximo de diez días hábiles desde su recepción, y el ejercicio de estos derechos es gratuito.</p>
+      <h4>9. Menores de edad</h4>
+      <p>El sitio no se dirige a menores de edad y no recoge conscientemente sus datos. Si un padre, madre o tutor advierte que un menor nos ha enviado datos, puede pedir su eliminación por el mismo correo.</p>
+      <h4>10. Medidas de seguridad</h4>
+      <p>El sitio se sirve mediante conexión cifrada, el acceso al correo de soporte está protegido con autenticación reforzada, y los mensajes recibidos solo son consultados por el titular. Ninguna medida es infalible, pero se revisan de forma periódica.</p>
+      <h4>11. Cambios en esta política</h4>
+      <p>Cualquier cambio se publicará en esta misma sección con una nueva fecha de última actualización. Si el cambio afecta de forma sustancial al tratamiento de datos ya recibidos, se comunicará además por correo a quienes nos hayan escrito en los doce meses anteriores.</p>
+    </div>
+  </details>
+
+  <details id="terminos" class="legal">
+    <summary><h3>Términos y Condiciones</h3></summary>
+    <div class="legal-cuerpo">
+      <p class="legal-fecha">Última actualización: 27 de septiembre de 2026</p>
+      <h4>1. Identificación del titular</h4>
+      <p>El sitio sixtime.online es titularidad de RICARDO DAVID JIMENEZ ARRIETA, con domicilio en Anillo Periférico Diag. 12, Cdad. de Guatemala, Guatemala, correo soporte@sixtime.online y teléfono +502 2472 8154.</p>
+      <h4>2. Objeto del sitio</h4>
+      <p>El sitio publica contenidos informativos y educativos de carácter general sobre métodos de medición y registro en comercios pequeños. No presta servicios financieros, contables, tributarios ni legales.</p>
+      <h4>3. Gratuidad</h4>
+      <p>El acceso y la lectura son gratuitos y no requieren registro. El sitio se sostiene con publicidad de terceros.</p>
+      <h4>4. Usos permitidos</h4>
+      <p>Puede leer, imprimir y citar fragmentos del contenido para uso personal, docente o de estudio, indicando la fuente y el enlace al sitio.</p>
+      <h4>5. Usos prohibidos</h4>
+      <ul>
+        <li>Reproducir el contenido completo o sustancial en otros sitios o publicaciones sin autorización escrita.</li>
+        <li>Presentar el contenido como asesoría profesional propia o ajena.</li>
+        <li>Usar el sitio o su nombre para suplantar al titular, enviar comunicaciones fraudulentas o solicitar datos a terceros.</li>
+        <li>Interferir con el funcionamiento del sitio, extraer su contenido de forma automatizada masiva o generar clics artificiales en los anuncios.</li>
+      </ul>
+      <h4>6. Propiedad intelectual</h4>
+      <p>Los textos, figuras, tablas y el diseño del sitio son obra de su titular y están protegidos por la legislación de derecho de autor aplicable. Las marcas de terceros que pudieran mencionarse pertenecen a sus respectivos dueños.</p>
+      <h4>7. Enlaces externos</h4>
+      <p>El sitio puede enlazar a páginas de terceros, como las de configuración de anuncios de Google. El titular no controla ni responde por su contenido ni por sus políticas.</p>
+      <h4>8. Publicidad</h4>
+      <p>El sitio muestra anuncios servidos por terceros, separados del contenido editorial y fuera del cuerpo de los capítulos. La aparición de un anuncio no implica recomendación ni respaldo del titular.</p>
+      <h4>9. Limitación de responsabilidad</h4>
+      <p>El contenido es general e hipotético. El titular no responde por decisiones tomadas a partir de él ni por daños derivados de su aplicación a casos concretos, que deben consultarse con un contador público o profesional habilitado. Tampoco responde por interrupciones del servicio ajenas a su control.</p>
+      <h4>10. Modificaciones</h4>
+      <p>El titular puede modificar estos términos y el contenido del sitio en cualquier momento. La versión vigente es la publicada en esta sección con su fecha de actualización.</p>
+      <h4>11. Legislación aplicable</h4>
+      <p>Estos términos se rigen por las leyes de la República de Guatemala. Cualquier controversia se someterá a los tribunales competentes de la Ciudad de Guatemala, salvo que la ley disponga otra cosa.</p>
+    </div>
+  </details>
+
+  <details id="cookies" class="legal">
+    <summary><h3>Política de Cookies</h3></summary>
+    <div class="legal-cuerpo">
+      <p class="legal-fecha">Última actualización: 27 de septiembre de 2026</p>
+      <h4>1. Qué son</h4>
+      <p>Las cookies son pequeños archivos que un sitio guarda en su navegador para recordar información entre visitas. Tecnologías similares, como el almacenamiento local del navegador, cumplen funciones parecidas y se tratan aquí del mismo modo.</p>
+      <h4>2. Cookies técnicas</h4>
+      <p>Son necesarias para el funcionamiento básico. sixtime.online guarda en el almacenamiento local de su navegador únicamente su elección sobre cookies, para no volver a preguntarle en cada visita. No se usa para identificarle.</p>
+      <h4>3. Cookies de medición</h4>
+      <p>Sirven para contar visitas y conocer cómo se usa el sitio de forma agregada. En esta edición sixtime.online no instala herramientas de medición propias. Si se incorporan, solo se activarán con su consentimiento y se detallarán en esta sección.</p>
+      <h4>4. Cookies publicitarias de terceros</h4>
+      <p>Los anuncios del sitio los sirve Google. Google y sus socios pueden usar cookies para mostrar anuncios basados en las visitas previas del usuario a este y a otros sitios web. El uso de cookies publicitarias permite a Google y a sus socios mostrar anuncios según esas visitas. Puede conocer cómo usa Google los datos de los sitios asociados en <a href="https://policies.google.com/technologies/partner-sites" rel="noopener" target="_blank">policies.google.com/technologies/partner-sites</a> y desactivar la publicidad personalizada en <a href="https://adssettings.google.com" rel="noopener" target="_blank">adssettings.google.com</a>.</p>
+      <h4>5. Cómo revocar el consentimiento</h4>
+      <p>Puede cambiar su elección en cualquier momento. Desde el navegador, abra la configuración de privacidad, busque la sección de cookies y datos de sitios, y elimine los datos de sixtime.online o bloquee las cookies de terceros; al borrar los datos del sitio, el aviso volverá a aparecer. También puede usar el botón siguiente, visible cuando el navegador tiene activado JavaScript.</p>
+      <p><button class="boton cookie-revisar" type="button" id="cookie-revisar" hidden>Revisar mi elección de cookies</button></p>
+    </div>
+  </details>
+
+  <details id="descargo-legal" class="legal">
+    <summary><h3>Descargo de Responsabilidad</h3></summary>
+    <div class="legal-cuerpo">
+      <p class="legal-fecha">Última actualización: 27 de septiembre de 2026</p>
+      <h4>1. Naturaleza del sitio</h4>
+      <p>sixtime.online, operado por RICARDO DAVID JIMENEZ ARRIETA, es un portal puramente informativo. Su contenido tiene finalidad educativa general y no constituye asesoría de ninguna clase.</p>
+      <h4>2. Actividades que no se realizan</h4>
+      <p>El sitio no presta intermediación financiera, no capta dinero del público, no ofrece asesoría de inversión personalizada y no concede créditos. No realiza pronósticos económicos, no publica tipos de cambio y no recomienda monedas, activos ni instrumentos de ninguna clase. No presta asesoría contable, tributaria ni legal individual.</p>
+      <h4>3. Carácter hipotético de los ejemplos</h4>
+      <p>Todos los ejemplos numéricos están expresados en base 100 o en unidades de producto, son inventados y tienen solo valor ilustrativo. No describen la situación de ningún negocio, lugar ni periodo.</p>
+      <h4>4. Normativa aplicable</h4>
+      <p>La elección de la unidad de medida contable, el tratamiento de la reposición, la valoración de inventarios y cualquier ajuste por cambios de precios se rigen por la normativa contable y tributaria vigente en Guatemala. Antes de aplicar cualquier método descrito debe consultarse con un contador público o profesional habilitado.</p>
+      <h4>5. Exactitud y actualización</h4>
+      <p>El contenido se revisa con cuidado, pero puede contener errores u omisiones. El titular no garantiza su exactitud ni su adecuación a un caso concreto y no responde de las decisiones que se tomen a partir de él.</p>
+      <h4>6. Publicidad</h4>
+      <p>Los anuncios que aparecen en el sitio son responsabilidad de sus anunciantes y no implican recomendación del titular.</p>
+    </div>
+  </details>
+</section>
+</div>
+</main>
+
+<footer class="colofon">
+ <div class="colofon-interior pliego">
+  <p class="colofon-titulo">Medir con una regla que cambia: cuadernillo sobre el costo de reposición en un comercio pequeño</p>
+  <div class="colofon-datos">
+  <p>Edición del 27 de septiembre de 2026</p>
+  <p>Sitio: sixtime.online · Titular: RICARDO DAVID JIMENEZ ARRIETA · Dominio: sixtime.online</p>
+  <p>Correo: <a href="mailto:soporte@sixtime.online">soporte@sixtime.online</a> · Teléfono: +502 2472 8154</p>
+  <p>Dirección: Anillo Periférico Diag. 12, Cdad. de Guatemala, Guatemala</p>
+  <p>País y normativa de datos: Guatemala · Constitución Política de la República de Guatemala, artículos 24 y 31, y Ley de Acceso a la Información Pública, Decreto número 57-2008</p>
+  <p><a href="#privacidad">Política de Privacidad</a> · <a href="#terminos">Términos y Condiciones</a> · <a href="#cookies">Política de Cookies</a> · <a href="#descargo-legal">Descargo de Responsabilidad</a></p>
+  <p><a href="#indice">Volver al índice</a></p>
+  </div>
+ </div>
+</footer>
+
+<div id="aviso-cookies" class="aviso-cookies" role="region" aria-label="Aviso de cookies" hidden>
+  <div class="aviso-interior pliego">
+    <p>Este sitio guarda su elección en el navegador y muestra anuncios de Google, que pueden usar cookies. Puede aceptarlas o rechazarlas; más detalles en la <a href="#cookies">Política de Cookies</a>.</p>
+    <div class="aviso-botones">
+      <button class="boton" type="button" id="cookies-rechazar">Rechazar</button>
+      <button class="boton" type="button" id="cookies-aceptar">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var CLAVE = "sixtime-cookies";
+
+  function abrirDetalle(id) {
+    if (!id) { return; }
+    var el = document.getElementById(id);
+    if (el && el.tagName === "DETAILS") { el.open = true; }
+  }
+
+  function abrirDesdeHash() {
+    var h = window.location.hash;
+    if (h && h.length > 1) {
+      try { abrirDetalle(decodeURIComponent(h.slice(1))); } catch (e) { abrirDetalle(h.slice(1)); }
+    }
+  }
+
+  abrirDesdeHash();
+  window.addEventListener("hashchange", abrirDesdeHash);
+
+  document.addEventListener("click", function (ev) {
+    var destino = ev.target instanceof Element ? ev.target.closest("a") : null;
+    if (!destino) { return; }
+    var href = destino.getAttribute("href");
+    if (href && href.charAt(0) === "#") { abrirDetalle(href.slice(1)); }
+  });
+
+  window.addEventListener("beforeprint", function () {
+    var lista = document.querySelectorAll("details");
+    for (var i = 0; i < lista.length; i += 1) { lista[i].open = true; }
+  });
+
+  function leer() {
+    try { return window.localStorage.getItem(CLAVE); } catch (e) { return null; }
+  }
+  function guardar(valor) {
+    try { window.localStorage.setItem(CLAVE, valor); } catch (e) { return; }
+  }
+
+  var aviso = document.getElementById("aviso-cookies");
+  var aceptar = document.getElementById("cookies-aceptar");
+  var rechazar = document.getElementById("cookies-rechazar");
+  var revisar = document.getElementById("cookie-revisar");
+
+  function mostrarAviso() {
+    if (!aviso) { return; }
+    aviso.hidden = false;
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () { aviso.classList.add("visible"); });
+    });
+  }
+  function ocultarAviso() {
+    if (!aviso) { return; }
+    aviso.classList.remove("visible");
+    aviso.hidden = true;
+  }
+
+  if (aviso && aceptar && rechazar) {
+    var elegido = leer();
+    if (elegido !== "aceptadas" && elegido !== "rechazadas") { mostrarAviso(); }
+    aceptar.addEventListener("click", function () { guardar("aceptadas"); ocultarAviso(); });
+    rechazar.addEventListener("click", function () { guardar("rechazadas"); ocultarAviso(); });
+  }
+  if (revisar && aviso) {
+    revisar.hidden = false;
+    revisar.addEventListener("click", mostrarAviso);
+  }
+
+  var form = document.getElementById("form-contacto");
+  var estado = document.getElementById("form-estado");
+  if (form && estado) {
+    form.setAttribute("novalidate", "");
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var nombre = form.elements.namedItem("nombre");
+      var correo = form.elements.namedItem("correo");
+      var mensaje = form.elements.namedItem("mensaje");
+      if (!nombre || !correo || !mensaje) { return; }
+      var n = nombre.value.trim();
+      var c = correo.value.trim();
+      var m = mensaje.value.trim();
+      var patron = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+      var error = "";
+      var foco = null;
+      if (n.length < 2) { error = "Escriba su nombre."; foco = nombre; }
+      else if (!patron.test(c)) { error = "Escriba una dirección de correo válida."; foco = correo; }
+      else if (m.length < 20) { error = "El mensaje debe tener al menos 20 caracteres."; foco = mensaje; }
+      nombre.setAttribute("aria-invalid", foco === nombre ? "true" : "false");
+      correo.setAttribute("aria-invalid", foco === correo ? "true" : "false");
+      mensaje.setAttribute("aria-invalid", foco === mensaje ? "true" : "false");
+      if (error) {
+        estado.textContent = error;
+        if (foco) { foco.focus(); }
+        return;
+      }
+      var cuerpo = "Nombre: " + n + "\nCorreo: " + c + "\n\n" + m;
+      var url = "mailto:soporte@sixtime.online?subject=" + encodeURIComponent("Consulta desde sixtime.online") + "&body=" + encodeURIComponent(cuerpo);
+      estado.textContent = "Se abrirá su programa de correo con el mensaje preparado. Revíselo y envíelo desde allí.";
+      window.location.href = url;
+    });
+  }
+})();
+</script>
 </body>
 </html>
